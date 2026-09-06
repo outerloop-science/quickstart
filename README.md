@@ -21,7 +21,10 @@ a GitHub account that can create an App in some organization or on your user.
 
 1. Fork this repository. The agents open pull requests against your fork.
 2. Install the kernel and run the wizard. It asks where the loop runs, which
-   repository, which model and its key, and mints the GitHub bot for you:
+   repository, which model and its key, and which GitHub identity the agents
+   open pull requests as. Answer `app` and it creates a GitHub App for you in
+   one browser click and installs it on your fork; answer `pat` if you already
+   have a token:
 
    ```bash
    pip install outerloop-science

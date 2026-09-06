@@ -1,0 +1,22 @@
+{
+  "tsp": {
+    "benchmark": "tsp",
+    "metric": "mean_tour_length",
+    "direction": "min",
+    "baseline": 13.875696168157484,
+    "best": 13.875696168157484,
+    "best_run": "baseline",
+    "updated": "2026-09-06",
+    "run_seed": 0
+  },
+  "denoise": {
+    "benchmark": "denoise",
+    "metric": "mean_mse",
+    "direction": "min",
+    "baseline": 0.010037478730144574,
+    "best": 0.010037478730144574,
+    "best_run": "baseline",
+    "updated": "2026-09-06",
+    "run_seed": 20260809
+  }
+}

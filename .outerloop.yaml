@@ -1,0 +1,24 @@
+# Outerloop contract: what to measure, what an agent may change, what it reads.
+benchmarks:
+  - name: tsp
+    command: uv run python -m quickstart.eval --env tsp --json
+    metric: mean_tour_length
+    direction: min
+  - name: denoise
+    command: uv run python -m quickstart.eval --env denoise --json
+    metric: mean_mse
+    direction: min
+    # The clean signals are redrawn per run from a seed the eval keeps to
+    # itself and prints with the score; set the variable to reproduce a run.
+    seed_env: QUICKSTART_DENOISE_SEED
+    # Two runs under different seeds differ by about this much for the same
+    # solver (the reference's measured stderr, times four); the gate asks a
+    # candidate to beat the baseline by more than noise.
+    min_delta: 0.0002
+budgets:
+  gpu_hours_per_run: 0        # CPU only, by construction
+  runs_per_week: 10
+scope:
+  # Solvers only. The instances, the eval harness and the tests are the ruler.
+  allowed: [src/quickstart/solvers/]
+roadmap: docs/roadmap.md

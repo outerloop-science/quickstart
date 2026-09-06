@@ -1,0 +1,2 @@
+{"benchmark": "tsp", "metric": "mean_tour_length", "value": 13.875696168157484, "direction": "min"}
+{"benchmark": "denoise", "metric": "mean_mse", "value": 0.010037478730144574, "direction": "min", "stderr": 4.823212169116741e-05, "run_seed": 20260809, "n_signals": 64, "n_draws_per_signal": 2, "estimator": "quickstart.eval.reference_denoise (9-sample moving average)"}

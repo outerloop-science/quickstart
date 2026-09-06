@@ -5,15 +5,6 @@ run. Both are deterministic, CPU-only, and evaluate in seconds, so the whole loo
 an agent proposing a change, the kernel measuring it, a pull request opening when
 it improved, fits in one sitting on a laptop.
 
-## Status
-
-Walking these steps on a laptop found two gaps in the kernel. Both are fixed
-on the kernel's `main` and wait for the next release on PyPI
-([outerloop#284](https://github.com/outerloop-science/outerloop/issues/284)).
-Until then, install from source with
-`pip install git+https://github.com/outerloop-science/outerloop.git` and run
-the three commands below. This note goes away when the release is out.
-
 ## Try it
 
 You need an API key for the model that will write the code (Claude or Codex), and

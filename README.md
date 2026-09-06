@@ -5,6 +5,15 @@ run. Both are deterministic, CPU-only, and evaluate in seconds, so the whole loo
 an agent proposing a change, the kernel measuring it, a pull request opening when
 it improved, fits in one sitting on a laptop.
 
+## Status
+
+Walking these steps on a laptop found two gaps in the kernel, tracked as
+[outerloop#287](https://github.com/outerloop-science/outerloop/issues/287) and
+[outerloop#289](https://github.com/outerloop-science/outerloop/issues/289).
+Until the fixes are released, run the loop from a clone of the kernel on a
+machine with Apptainer, or on a Slurm cluster. This note goes away when the
+three commands below work as written.
+
 ## Try it
 
 You need an API key for the model that will write the code (Claude or Codex), and

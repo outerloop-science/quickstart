@@ -7,12 +7,12 @@ it improved, fits in one sitting on a laptop.
 
 ## Status
 
-Walking these steps on a laptop found two gaps in the kernel, tracked as
-[outerloop#287](https://github.com/outerloop-science/outerloop/issues/287) and
-[outerloop#289](https://github.com/outerloop-science/outerloop/issues/289).
-Until the fixes are released, run the loop from a clone of the kernel on a
-machine with Apptainer, or on a Slurm cluster. This note goes away when the
-three commands below work as written.
+Walking these steps on a laptop found two gaps in the kernel. Both are fixed
+on the kernel's `main` and wait for the next release on PyPI
+([outerloop#284](https://github.com/outerloop-science/outerloop/issues/284)).
+Until then, install from source with
+`pip install git+https://github.com/outerloop-science/outerloop.git` and run
+the three commands below. This note goes away when the release is out.
 
 ## Try it
 

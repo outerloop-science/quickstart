@@ -7,13 +7,14 @@ request opens when it improved.
 
 ## Try it on your machine
 
-You need Python 3.12 or later, [uv](https://docs.astral.sh/uv/), git, and an API
-key for the model that writes the code (Claude or Codex). No GitHub account, no
-cluster and no container.
+You need Python 3.12 or later, [uv](https://docs.astral.sh/uv/), Git 2.38 or
+later, and an Anthropic API key for the Claude author. No GitHub account, no
+cluster and no container. (A Codex author needs the agent image; see the install
+guide.)
 
 ```bash
 pip install outerloop-science
-outerloop init --forge local --compute local --target me/quickstart \
+outerloop init --forge local --compute local --no-image --target me/quickstart \
   --forge-source https://github.com/outerloop-science/quickstart
 outerloop start
 ```

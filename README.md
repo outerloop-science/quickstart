@@ -22,7 +22,9 @@ outerloop start
 `init` copies this repository into a git repository under the kernel's state
 directory, which stands in for GitHub: pull requests and their threads are
 records inside it. It asks for the model and its key. `start` runs the loop in
-the foreground; stop it with Ctrl-C and start it again any time.
+the foreground; stop it with Ctrl-C and start it again any time. Without a
+container the author's session runs as your user and can read any file your
+account can, so give it a spend-capped key.
 
 The first attempt ends within about half an hour, as a pull request or as a
 negative result in the research log. Review it from another terminal:

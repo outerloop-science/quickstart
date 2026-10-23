@@ -1,39 +1,46 @@
 # Outerloop quickstart
 
 Two small benchmarks for a first [Outerloop](https://github.com/outerloop-science/outerloop)
-run. Both are deterministic, CPU-only, and evaluate in seconds, so the whole loop,
-an agent proposing a change, the kernel measuring it, a pull request opening when
-it improved, fits in one sitting on a laptop.
+run. Both are deterministic, CPU-only and evaluate in seconds, so the whole loop
+fits on a laptop: an agent proposes a change, the kernel measures it, and a pull
+request opens when it improved.
 
-## Try it
+## Try it on your machine
 
-You need an API key for the model that will write the code (Claude or Codex), and
-a GitHub account that can create an App in some organization or on your user.
+You need Python 3.12 or later, [uv](https://docs.astral.sh/uv/), Git 2.38 or
+later, and an Anthropic API key for the Claude author. No GitHub account, no
+cluster and no container. (A Codex author needs the agent image; see the install
+guide.)
 
-1. Fork this repository. The agents open pull requests against your fork.
-2. Install the kernel and run the wizard. It asks where the loop runs, which
-   repository, which model and its key, and which GitHub identity the agents
-   open pull requests as. Answer `app` and it creates a GitHub App for you in
-   one browser click and installs it on your fork; answer `pat` if you already
-   have a token:
+```bash
+pip install outerloop-science
+outerloop init --forge local --compute local --no-image --target me/quickstart \
+  --forge-source https://github.com/outerloop-science/quickstart
+outerloop start
+```
 
-   ```bash
-   pip install outerloop-science
-   outerloop init
-   ```
+`init` copies this repository into a git repository under the kernel's state
+directory, which stands in for GitHub: pull requests and their threads are
+records inside it. It asks for the model and its key. `start` runs the loop in
+the foreground; stop it with Ctrl-C and start it again any time.
 
-3. Start the loop. Without a cluster it runs in the foreground:
+The first attempt ends within about half an hour, as a pull request or as a
+negative result in the research log. Review it from another terminal:
 
-   ```bash
-   outerloop start
-   ```
+```bash
+outerloop status
+outerloop pr list
+outerloop pr show 1
+outerloop pr comment 1 "why this window size?"   # the author answers on its next wake
+outerloop pr merge 1
+```
 
-The first attempt ends within about half an hour, as a pull request on your fork
-or as a negative result in the research log the kernel writes to the
-`research-log` branch. `BENCHMARKS.md` records every measured improvement.
+A merged result lands in `BENCHMARKS.md` on the `research-log` branch, measured
+by the kernel, never taken from the agent's claim. The repository is ordinary git:
+`git clone <state root>/forge/me/quickstart.git` and diff the branches.
 
-Step by step, with other model backends and a Slurm cluster:
-[docs/install.md](https://github.com/outerloop-science/outerloop/blob/main/docs/install.md).
+To run against GitHub instead, fork this repository and follow
+[the install guide](https://github.com/outerloop-science/outerloop/blob/main/docs/install.md).
 
 ## The benchmarks
 
